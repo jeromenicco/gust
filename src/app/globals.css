@@ -4,14 +4,12 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: Nulshock;
   src: url("assets/fonts/nulshock-bd.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
-
 @keyframes overflow-- {
   0% {
     opacity: 0;
@@ -30,26 +28,32 @@
     opacity: 1;
   }
 }
-
-
+@keyframes gradient-- {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
 :root {
   --body-bg: black;
   --font-color: white;
   --logo-fs: 10vw;
   --caption-fs: 1.5vw;
 }
-
 body {
-  height: 100%;
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient-- 15s ease infinite;
+	height: 100vh;
   width: 100%;
   margin: 0;
   padding: 0;
 }
-
-main {
-  background: var(--body-bg);
-}
-
 .content__container {
   width: 100%;
   height: 100vh;
@@ -57,18 +61,15 @@ main {
   justify-content: center;
   align-items: center;
 }
-
 .logo__container {
   color: var(--font-color);
   text-align: center;
   letter-spacing: 1px;
 }
-
 .logo__wrapper {
   overflow: hidden;
   width: 105%;
 }
-
 .content__container h1 {
   display: inline-flex;
   font-size: var(--logo-fs);
@@ -79,12 +80,10 @@ main {
   transform: translate(0, 100%) skew(-10deg);
   animation: overflow-- 0.2s 0.5s ease forwards;
 }
-
 .content__container span {
-  color: black;
+  color: transparent;
   -webkit-text-stroke: 2.3px white;
 }
-
 .content__container h2 {
   margin: 0;
   padding: 0.5rem;
@@ -94,7 +93,6 @@ main {
   font-family: Nulshock;
   animation: fade-- 0.5s ease-in-out forwards;
 }
-
 @media only screen and (max-width: 600px) {
   .content__container {
     height: 100cqh;
@@ -103,7 +101,14 @@ main {
   .content__container h1 {
     font-size: calc(var(--logo-fs) * 2.5);
   }
-  
+  .content__container h2 {
+    font-size: calc(var(--caption-fs) * 2.5);
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .content__container h1 {
+    font-size: calc(var(--logo-fs) * 2.5);
+  }
   .content__container h2 {
     font-size: calc(var(--caption-fs) * 2.5);
   }
